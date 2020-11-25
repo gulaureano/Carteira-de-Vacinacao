@@ -1,0 +1,43 @@
+Create table Usuario(
+cod_usuario integer,
+nome_usuario varchar2(20),
+ende_usuario varchar2(20),
+cpf_usuario integer,
+idade_usuario integer,
+primary key (cod_usuario)
+);
+
+Create table Resp_Tec(
+cod_resp integer,
+nome_resp varchar2(30),
+crm_resp varchar2(15),
+endereco_resp varchar2(30),
+idade_resp integer
+primary key (cod_resp)
+);
+
+Create table Vacina(
+cod_vacina integer,
+nome_vacina varchar2(20),
+composicao varchar2(20),
+indicacao varchar2(20),
+validade varchar2(10),
+consumo_via varchar2(10),
+periculosidade varchar2(15)
+primary key (cod_vacina)
+);
+
+Create table Campanha(
+cod_usuario integer,
+cod_vacina integer,
+cod_resp integer,
+local varchar2(15),
+data varchar2(12),
+hora varchar2(12),
+endereco varchar2(30),
+capacidade integer,
+quant_vacinas integer,
+foreign key (cod_usuario) references Usuario,
+foreign key (cod_vacina) references Vacina,
+foreign key (cod_resp) references Resp_Tec
+);
